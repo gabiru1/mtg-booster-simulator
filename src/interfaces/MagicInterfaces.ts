@@ -11,3 +11,14 @@ export interface ICard {
 export interface IBooster {
   cards: ICard[];
 }
+
+export interface ISet {
+  code: string;
+  name: string;
+  booster: ICard;
+  releaseDate: string;
+}
+
+export interface ISets {
+  sets: ISet[];
+}

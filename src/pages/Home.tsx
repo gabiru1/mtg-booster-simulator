@@ -2,12 +2,14 @@ import { useEffect } from "react";
 
 import Card from "../components/Card/Card";
 import { useBooster } from "../hooks/useBooster";
+import { magicApiService } from "../services/magicApiService";
 
 function Home() {
   const { booster, getBooster } = useBooster();
 
   useEffect(() => {
     getBooster("M14");
+    magicApiService.getSets();
   }, []);
 
   return (

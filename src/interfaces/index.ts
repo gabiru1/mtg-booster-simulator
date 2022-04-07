@@ -1,1 +1,1 @@
-export * from "./ICards";
+export * from "./MagicInterfaces";
