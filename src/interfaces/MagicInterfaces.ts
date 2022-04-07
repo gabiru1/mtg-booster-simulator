@@ -15,7 +15,7 @@ export interface IBooster {
 export interface ISet {
   code: string;
   name: string;
-  booster: ICard;
+  booster: string[];
   releaseDate: string;
 }
 

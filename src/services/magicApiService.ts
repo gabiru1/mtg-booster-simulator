@@ -11,12 +11,12 @@ const getSets = async () => {
   const { data } = await Api.get<ISets>(
     "https://api.magicthegathering.io/v1/sets"
   );
-  const arraySets = data.sets.map((set: ISet) => set.booster && set);
-  arraySets.sort((a, b) => {
-    if (a.releaseDate > b.releaseDate) return SORT_COMPARATION;
-    return 0;
-  });
-  return arraySets;
+  return data.sets
+    .filter((set: ISet) => set.booster)
+    .sort((a, b) => {
+      if (a.releaseDate > b.releaseDate) return SORT_COMPARATION;
+      return 0;
+    });
 };
 
 export const magicApiService = {
