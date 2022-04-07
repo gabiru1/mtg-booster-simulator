@@ -1,6 +1,7 @@
+/* eslint-disable react/jsx-no-constructed-context-values */
 import { ReactNode, useEffect, useState } from "react";
 
-import { ISets } from "../interfaces";
+import { ISet } from "../interfaces";
 import { magicApiService } from "../services";
 import SetsContext from "./SetsContext";
 
@@ -9,9 +10,9 @@ interface ISetsProviderProps {
 }
 
 function SetsProvider({ children }: ISetsProviderProps) {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<ISet[]>([]);
   const getSets = async () => {
-    const allSets: ISets = await magicApiService.getSets();
+    const allSets: ISet[] = await magicApiService.getSets();
     setData(allSets);
   };
 
