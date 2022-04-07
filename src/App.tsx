@@ -1,10 +1,13 @@
 import "./App.css";
-import Home from "./pages/Home";
+import { SetsProvider } from "./hooks/useSets";
+import Home from "./pages/Home/Home";
 
 function App() {
   return (
     <div id="App">
-      <Home />
+      <SetsProvider>
+        <Home />
+      </SetsProvider>
     </div>
   );
 }

@@ -1,11 +1,14 @@
 import { ICard } from "../../interfaces";
+import "./Card.css";
 
 function Card({ name, setName, rarity, text, imageUrl, flavor, id }: ICard) {
   return (
-    <div className="card" id={id}>
+    <div className="card-container" id={id}>
       <h3 className="legend">{name}</h3>
       <p>{setName}</p>
-      <img id="card-img" src={imageUrl} alt={name} />
+      <div className="card-img">
+        <img src={imageUrl} alt={name} />
+      </div>
       <p>{rarity}</p>
       <p>{flavor}</p>
       <p>{text}</p>
