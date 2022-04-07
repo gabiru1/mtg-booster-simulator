@@ -7,3 +7,7 @@ export interface ICard {
   imageUrl: string;
   flavor: string;
 }
+
+export interface IBooster {
+  cards: ICard[];
+}

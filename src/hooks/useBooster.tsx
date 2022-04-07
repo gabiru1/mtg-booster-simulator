@@ -4,14 +4,14 @@ import { ICard } from "../interfaces";
 import { magicApiService } from "../services";
 
 export const useBooster = () => {
-  const [booster, setbooster] = useState<ICard[]>();
+  const [booster, setbooster] = useState<ICard[]>([]);
 
-  const getBooster = useCallback(async () => {
-    const { status, data } = await magicApiService.getBoosterFromSet("M14");
+  const getBooster = useCallback(async (setCode: string) => {
+    const { status, data } = await magicApiService.getBoosterFromSet(setCode);
 
     if (status !== 200) throw new Error();
 
-    setbooster(data);
+    setbooster(data.cards);
   }, []);
   return {
     booster,
