@@ -1,20 +1,23 @@
 import { useEffect } from "react";
 
 import Card from "../../components/Card/Card";
+import OpenBoosterButton from "../../components/OpenBoosterButton/OpenBoosterButton";
+import SetsDropdown from "../../components/SetsDropDown/SetsDropDown";
 import { useBooster } from "../../hooks/useBooster";
 import { useSets } from "../../hooks/useSets";
 import "./Home.css";
 
 function Home() {
-  const { booster, getBooster } = useBooster();
+  const { booster, setbooster, getBooster } = useBooster();
   const { data, set, setSet } = useSets();
 
   useEffect(() => {
-    getBooster("m14");
+    getBooster("m145");
   }, []);
 
   return (
     <div>
+      <SetsDropdown sets={data} onChange={setSet} />
       <div className="cards-container">
         {booster.map((card) => (
           <Card

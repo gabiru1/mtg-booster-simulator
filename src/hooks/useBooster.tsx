@@ -15,6 +15,7 @@ export const useBooster = () => {
   }, []);
   return {
     booster,
+    setbooster,
     getBooster,
   };
 };
