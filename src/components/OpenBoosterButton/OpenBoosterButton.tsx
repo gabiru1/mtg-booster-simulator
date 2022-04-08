@@ -1,3 +1,5 @@
+import "./OpenBoosterButton.css";
+
 interface IOpenBoosterButtonProps {
   setName: string;
   onClick: () => void;

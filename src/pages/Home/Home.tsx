@@ -2,10 +2,12 @@ import { useEffect } from "react";
 
 import Card from "../../components/Card/Card";
 import { useBooster } from "../../hooks/useBooster";
+import { useSets } from "../../hooks/useSets";
 import "./Home.css";
 
 function Home() {
   const { booster, getBooster } = useBooster();
+  const { data, set, setSet } = useSets();
 
   useEffect(() => {
     getBooster("m14");

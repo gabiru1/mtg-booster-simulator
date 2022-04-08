@@ -18,28 +18,31 @@ interface ISetsProviderProps {
 
 interface ISetsContextData {
   data: ISet[];
+  set: string;
   setData: Dispatch<SetStateAction<ISet[]>>;
+  setSet: Dispatch<SetStateAction<string>>;
 }
 
 const SetsContext = createContext({} as ISetsContextData);
 
 function SetsProvider({ children }: ISetsProviderProps) {
   const [data, setData] = useState<ISet[]>([]);
+  const [set, setSet] = useState("NEO");
   const getSets = async () => {
     const allSets: ISet[] = await magicApiService.getSets();
     setData(allSets);
-    console.log(allSets);
   };
 
   useEffect(() => {
     getSets();
-    console.log(data, "123");
   }, []);
 
   const foo = useMemo(
     () => ({
       data,
       setData,
+      set,
+      setSet,
     }),
     [data]
   );
@@ -50,7 +53,7 @@ function SetsProvider({ children }: ISetsProviderProps) {
 const useSets = (): ISetsContextData => {
   const context = useContext(SetsContext);
 
-  if (context) {
+  if (!context) {
     throw new Error("useSets must be used within an SetsProvider");
   }
 

@@ -1,4 +1,5 @@
 import { ISet } from "../../interfaces";
+import "./SetsDropDown.css";
 
 interface ISetsDropdownProps {
   sets: ISet[];

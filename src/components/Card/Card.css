@@ -23,5 +23,5 @@ img {
 
 .card-img:hover {
   border-radius: 5%;
-  transform: scale(1.2);
+  transform: scale(1.15);
 }
