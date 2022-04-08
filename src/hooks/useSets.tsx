@@ -47,6 +47,8 @@ function SetsProvider({ children }: ISetsProviderProps) {
     [data]
   );
 
+  console.log(data);
+
   return <SetsContext.Provider value={foo}>{children}</SetsContext.Provider>;
 }
 

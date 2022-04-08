@@ -1,23 +1,25 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import Card from "../../components/Card/Card";
 import OpenBoosterButton from "../../components/OpenBoosterButton/OpenBoosterButton";
 import SetsDropdown from "../../components/SetsDropDown/SetsDropDown";
 import { useBooster } from "../../hooks/useBooster";
-import { useSets } from "../../hooks/useSets";
+import { magicApiService } from "../../services";
 import "./Home.css";
 
 function Home() {
-  const { booster, setbooster, getBooster } = useBooster();
-  const { data, set, setSet } = useSets();
+  const { booster, setBooster } = useBooster();
+  const [select, setSelect] = useState("NEO");
 
-  useEffect(() => {
-    getBooster("m145");
-  }, []);
+  const getBoosterFromContext = async () => {
+    const boosterCards = await magicApiService.getBoosterFromSet(select);
+    setBooster(boosterCards.data.cards);
+  };
 
   return (
     <div>
-      <SetsDropdown sets={data} onChange={setSet} />
+      <SetsDropdown onChange={setSelect} />
+      <OpenBoosterButton setName={select} onClick={getBoosterFromContext} />
       <div className="cards-container">
         {booster.map((card) => (
           <Card

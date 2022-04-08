@@ -1,16 +1,17 @@
-import { ISet } from "../../interfaces";
+import { useSets } from "../../hooks/useSets";
 import "./SetsDropDown.css";
 
 interface ISetsDropdownProps {
-  sets: ISet[];
   onChange: (value: string) => void;
 }
 
-export default function SetsDropdown({ sets, onChange }: ISetsDropdownProps) {
+export default function SetsDropdown({ onChange }: ISetsDropdownProps) {
+  const { data } = useSets();
+
   return (
     <div>
       <select onChange={({ target }) => onChange(target.value)}>
-        {sets.map((set) => (
+        {data.map((set) => (
           <option value={set.code} key={set.code}>
             {set.name}, {set.code}
           </option>
