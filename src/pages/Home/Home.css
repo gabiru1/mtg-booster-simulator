@@ -1,5 +1,15 @@
-.cards-container {
+/* .cards-container {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   justify-content: center;
+} */
+
+.cards-container {
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-root {
+  max-width: 20rem;
 }

@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { Carousel } from "react-responsive-carousel";
 
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Card from "../../components/Card/Card";
 import OpenBoosterButton from "../../components/OpenBoosterButton/OpenBoosterButton";
 import SetsDropdown from "../../components/SetsDropDown/SetsDropDown";
@@ -17,21 +19,21 @@ function Home() {
   };
 
   return (
-    <div>
+    <div id="home">
       <SetsDropdown onChange={setSelect} />
       <OpenBoosterButton setName={select} onClick={getBoosterFromContext} />
       <div className="cards-container">
-        {booster.map((card) => (
-          <Card
-            id={card.id}
-            name={card.name}
-            rarity={card.rarity}
-            setName={card.setName}
-            flavor={card.flavor}
-            text={card.text}
-            imageUrl={card.imageUrl}
-          />
-        ))}
+        <Carousel showIndicators={false} swipeable>
+          {booster.map((card) => (
+            <Card
+              id={card.id}
+              name={card.name}
+              rarity={card.rarity}
+              setName={card.setName}
+              imageUrl={card.imageUrl}
+            />
+          ))}
+        </Carousel>
       </div>
     </div>
   );

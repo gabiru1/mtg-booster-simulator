@@ -1,4 +1,4 @@
-.card-container {
+/* .card-container {
   align-items: center;
   border: 1px solid rgb(47, 1, 1);
   display: flex;
@@ -7,19 +7,19 @@
   max-width: 15rem;
   max-height: 40rem;
   padding: 15px;
-}
+} */
 
-.card-container > * {
+/* .card-container > * {
   margin: 2px
-}
+} */
 
-.card-img {
+/* .card-img {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 
-img {
+.card-img > img {
   border-radius: 5%;
   max-width: 12rem;
   min-width: 12rem;
