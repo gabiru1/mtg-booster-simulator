@@ -9,7 +9,7 @@ import "./Home.css";
 
 function Home() {
   const { booster, setBooster } = useBooster();
-  const [select, setSelect] = useState("NEO");
+  const [select, setSelect] = useState("AFR");
 
   const getBoosterFromContext = async () => {
     const boosterCards = await magicApiService.getBoosterFromSet(select);
@@ -23,7 +23,6 @@ function Home() {
       <div className="cards-container">
         {booster.map((card) => (
           <Card
-            key={card.id}
             id={card.id}
             name={card.name}
             rarity={card.rarity}

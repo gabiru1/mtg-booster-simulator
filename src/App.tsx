@@ -4,7 +4,7 @@ import Home from "./pages/Home/Home";
 
 function App() {
   return (
-    <div id="App">
+    <div id="App ">
       <SetsProvider>
         <Home />
       </SetsProvider>

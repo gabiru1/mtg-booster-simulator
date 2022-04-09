@@ -9,7 +9,7 @@ function Card({ name, setName, rarity, text, imageUrl, flavor, id }: ICard) {
       <div className="card-img">
         <img src={imageUrl} alt={name} />
       </div>
-      <p>{rarity}</p>
+      <h4>{rarity}</h4>
       <p>{flavor}</p>
       <p>{text}</p>
     </div>

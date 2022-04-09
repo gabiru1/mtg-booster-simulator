@@ -3,25 +3,29 @@
   border: 1px solid rgb(47, 1, 1);
   display: flex;
   flex-direction: column;
-  font-size: smaller;
+  font-size: small;
   max-width: 15rem;
   max-height: 40rem;
   padding: 15px;
+}
+
+.card-container > * {
+  margin: 2px
 }
 
 .card-img {
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 11rem;
-  min-width: 11rem;
 }
 
 img {
   border-radius: 5%;
+  max-width: 12rem;
+  min-width: 12rem;
 }
 
 .card-img:hover {
   border-radius: 5%;
-  transform: scale(1.15);
+  transform: scale(1.2);
 }

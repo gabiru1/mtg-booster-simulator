@@ -12,7 +12,7 @@ const getSets = async () => {
     "https://api.magicthegathering.io/v1/sets"
   );
   return data.sets
-    .filter((set: ISet) => set.booster)
+    .filter((set: ISet) => set.booster && set.booster.length > 1)
     .sort((a, b) => {
       if (a.releaseDate > b.releaseDate) return SORT_COMPARATION;
       return 0;

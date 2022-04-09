@@ -18,16 +18,13 @@ interface ISetsProviderProps {
 
 interface ISetsContextData {
   data: ISet[];
-  set: string;
   setData: Dispatch<SetStateAction<ISet[]>>;
-  setSet: Dispatch<SetStateAction<string>>;
 }
 
 const SetsContext = createContext({} as ISetsContextData);
 
 function SetsProvider({ children }: ISetsProviderProps) {
   const [data, setData] = useState<ISet[]>([]);
-  const [set, setSet] = useState("NEO");
   const getSets = async () => {
     const allSets: ISet[] = await magicApiService.getSets();
     setData(allSets);
@@ -41,13 +38,9 @@ function SetsProvider({ children }: ISetsProviderProps) {
     () => ({
       data,
       setData,
-      set,
-      setSet,
     }),
     [data]
   );
-
-  console.log(data);
 
   return <SetsContext.Provider value={foo}>{children}</SetsContext.Provider>;
 }
